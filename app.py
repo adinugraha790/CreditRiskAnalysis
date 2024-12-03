@@ -1,6 +1,7 @@
 import streamlit as st
 import pickle
 import pandas as pd
+import sklearn
 
 # Load the pre-trained LightGBM pipeline
 with open("lightgbm_pipeline.pkl", "rb") as file:
@@ -20,8 +21,8 @@ home_ownership = st.selectbox("Home Ownership Status", ["RENT", "OWN", "MORTGAGE
 annual_inc = st.number_input("Annual Income ($)", min_value=0.0, step=1000.0)
 verification_status = st.selectbox("Income Verification Status", ["Verified", "Source Verified", "Not Verified"])
 loan_status = st.selectbox("Loan Status", ["Fully Paid", "Charged Off", "Current", "Late"])
-purpose = st.text_input("Loan Purpose")
-addr_state = st.text_input("State")
+purpose = st.selectbox("Loan Purpose", ['debt_consolidation', 'credit_card', 'other', 'home_improvement', 'major_purchase', 'small_business', 'car'])
+addr_state = st.selectbox("State", ['CA', 'other', 'NY', 'TX', 'FL', 'IL', 'NJ', 'PA', 'OH', 'GA', 'VA', 'NC', 'MI', 'MA', 'MD', 'AZ', 'WA', 'CO', 'MN', 'MO', 'CT', 'IN', 'NV', 'TN', 'OR', 'WI', 'AL', 'SC', 'LA'])
 dti = st.number_input("Debt-to-Income Ratio (%)", min_value=0.0, step=0.1)
 delinq_2yrs = st.number_input("Delinquencies (last 2 years)", min_value=0, step=1)
 inq_last_6mths = st.number_input("Inquiries in Last 6 Months", min_value=0, step=1)
