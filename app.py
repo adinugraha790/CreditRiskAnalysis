@@ -20,7 +20,6 @@ emp_length = st.number_input("Employment Length (years)", min_value=0, max_value
 home_ownership = st.selectbox("Home Ownership Status", ["RENT", "OWN", "MORTGAGE", "OTHER"])
 annual_inc = st.number_input("Annual Income ($)", min_value=0.0, step=1000.0)
 verification_status = st.selectbox("Income Verification Status", ["Verified", "Source Verified", "Not Verified"])
-loan_status = st.selectbox("Loan Status", ["Fully Paid", "Charged Off", "Current", "Late"])
 purpose = st.selectbox("Loan Purpose", ['debt_consolidation', 'credit_card', 'other', 'home_improvement', 'major_purchase', 'small_business', 'car'])
 addr_state = st.selectbox("State", ['CA', 'other', 'NY', 'TX', 'FL', 'IL', 'NJ', 'PA', 'OH', 'GA', 'VA', 'NC', 'MI', 'MA', 'MD', 'AZ', 'WA', 'CO', 'MN', 'MO', 'CT', 'IN', 'NV', 'TN', 'OR', 'WI', 'AL', 'SC', 'LA'])
 dti = st.number_input("Debt-to-Income Ratio (%)", min_value=0.0, step=0.1)
@@ -45,7 +44,6 @@ if st.button("Predict Credit Risk"):
         "home_ownership": [home_ownership],
         "annual_inc": [annual_inc],
         "verification_status": [verification_status],
-        "loan_status": [loan_status],
         "purpose": [purpose],
         "addr_state": [addr_state],
         "dti": [dti],
